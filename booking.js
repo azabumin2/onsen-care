@@ -13,9 +13,13 @@ const nameIn=$('guest-name'),kanaIn=$('guest-kana'),dateIn=$('checkin-date'),cnt
 function compose(){const x=cur();const d=dateIn.value?new Date(dateIn.value+'T00:00:00'):null;
  const jp=d?`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`:'希望日';
  const nm=nameIn.value||'予約者',k=kanaIn.value.trim();const who=k?`${nm}（${k}）`:nm;
- mail.textContent=`${x?x.name+' ':''}ご担当者様\n\nはじめまして、${who}と申します。\n${jp}から${cntIn.value}名で宿泊を希望しております。\n予約可能なお部屋と料金、送迎の有無をご案内いただけますでしょうか。\n\nどうぞよろしくお願いいたします。`}
+ const req=(window.buildRequests?window.buildRequests():[]);
+ const list=req.length?req.map((r,i)=>`${i+1}. ${r}`).join('\n'):'予約可能なお部屋と料金、送迎の有無をご案内いただけますでしょうか。';
+ const cour=(window.mailCourtesy&&window.mailCourtesy())?'日本語が不慣れなため、失礼な点がございましたらご容赦ください。\n':'';
+ mail.textContent=`${x?x.name+' ':''}ご担当者様\n\nはじめまして、${who}と申します。\n${jp}から${cntIn.value}名で宿泊を希望しております。\n${req.length?'つきましては、以下の点につきましてご確認いただけますでしょうか。\n\n':''}${list}\n\n${cour}お忙しいところ恐れ入りますが、ご返信をお待ちしております。\nどうぞよろしくお願いいたします。\n\n${who}`}
 $('kana-btn').addEventListener('click',()=>{kanaIn.value=window.koToKatakana?window.koToKatakana(nameIn.value):'';compose()});
 [nameIn,kanaIn,dateIn,cntIn].forEach(e=>e.addEventListener('input',compose));
+window.__bkCompose=compose;
 compose();
 function show(){const x=cur();if(!x){box.innerHTML='';$('bk-mailto').hidden=true;return}
  const c=C[x.name]||{};let h='';

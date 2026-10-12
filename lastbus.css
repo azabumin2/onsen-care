@@ -34,3 +34,16 @@
 .al-del{margin-top:8px;padding:8px 14px;border:1px solid #b3261e;color:#b3261e;background:#fff;border-radius:6px;cursor:pointer}
 .al-empty,.al-note{font-size:.95rem;opacity:.85}
 .lb-alarm-btn{margin-top:8px;font-size:1rem}
+
+/* 메일 빌더 */
+.mb{margin:12px 0;border:1px solid #cdd5d0;border-radius:12px;padding:10px;background:#fff}
+.mb-title{font-weight:800;font-size:1.05rem;margin-bottom:6px}
+.mb-row{display:flex!important;gap:10px;align-items:center;font-size:1rem;margin:8px 0!important;cursor:pointer}
+.mb-row input[type=checkbox]{width:22px!important;height:22px!important;margin:0!important;flex:0 0 auto}
+.mb-sub{margin:0 0 6px 32px;display:grid;gap:6px}
+.mb-sub select,.mb-sub input[type=text],.mb-sub input[type=time]{width:100%}
+.mb-chips{display:flex;flex-wrap:wrap;gap:6px}
+.mb-chip{display:flex!important;align-items:center;gap:6px;border:1px solid #cdd5d0;border-radius:99px;padding:6px 10px;margin:0!important;font-size:.95rem!important}
+.mb-chip input{width:18px!important;height:18px!important;margin:0!important}
+.mb-f{font-size:.95rem!important;margin:0!important}
+.mb-courtesy{border-top:1px dashed #cdd5d0;padding-top:10px}
