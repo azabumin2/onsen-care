@@ -8,6 +8,7 @@
   <title>히든 온센 & 케어 — 일본 비탕 여행의 불안을 덜다</title>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./atlas.css">
+  <link rel="stylesheet" href="./lastbus.css">
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -99,11 +100,14 @@
         <div class="phone-frame reveal" aria-live="polite">
           <div class="phone-top"><span>15:42</span><b>HIDDEN ONSEN</b><span>● ●</span></div>
           <section id="panel-mobility" role="tabpanel" aria-labelledby="tab-mobility" data-panel="mobility">
-            <div class="app-kicker">SAFE GUARDIAN</div><h3>오늘, 무사히 돌아오기</h3>
-            <div class="route"><span>아키타역</span><i></i><span>산간 비탕</span></div>
-            <div class="countdown"><span>역 방향 막차까지</span><strong data-countdown>01:18:34</strong><small>예시 화면 · 실제 시간표 아님</small></div>
-            <div class="alert-card"><b>출발 준비 권장</b><p>이동 20분 + 여유 15분을 고려하면<br><strong>16:05까지</strong> 온천을 나와야 합니다.</p></div>
-            <button class="app-button" type="button" data-toast="실제 서비스에서는 운행기관의 최신 정보로 이동 경로를 확인합니다.">대체 이동편 확인</button>
+            <div class="app-kicker">SAFE GUARDIAN</div><h3>막차 가디언</h3>
+            <div class="lb" id="lastbus">
+              <label>① 온천 선택<select id="lb-onsen"></select></label>
+              <label>② 출발역<select id="lb-station"></select></label>
+              <label>③ 역 출발 시각<input id="lb-dep" type="time" value="10:00"></label>
+              <div class="lb-result" id="lb-result" aria-live="polite"></div>
+              <p class="lb-note">시각표는 개정되므로 출발 전 공식 링크에서 꼭 확인하세요. “확인됨” 표시가 없는 시각은 직접 입력해 계산합니다.</p>
+            </div>
           </section>
           <section id="panel-booking" role="tabpanel" aria-labelledby="tab-booking" data-panel="booking" hidden>
             <div class="app-kicker">BOOKING BRIDGE</div><h3>일본어 문의 메일 만들기</h3>
@@ -215,6 +219,8 @@
   <div class="toast" role="status" aria-live="polite" data-toast-box></div>
   <script src="./onsen-data.js"></script>
   <script src="./script.js"></script>
+  <script src="./lastbus-data.js"></script>
+  <script src="./lastbus.js"></script>
   <script src="./atlas.js"></script>
 </body>
 </html>
