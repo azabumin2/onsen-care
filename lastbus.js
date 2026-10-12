@@ -29,6 +29,7 @@ function render(){const o=list[so.value],s=o.stations[ss.value],dep=t2m(sd.value
  if(s.back.length)h+=`<div class="lb-row"><span>돌아오는 편 <span class="lb-badge">확인됨</span></span><b>${s.back.join(' · ')}</b></div>`;
  h+=`<label style="margin-top:6px">온천→역 막차 시각 ${s.back.length?'':'(직접 입력)'}<input id="lb-last" type="time" value="${s.back.length?s.back[s.back.length-1]:''}"></label>`;
  h+=`<div id="lb-stay" class="lb-row"></div>`;
+ h+=`<button type="button" class="app-button lb-alarm-btn" id="lb-alarm">이 막차로 알림 설정</button>`;
  if(s.tip)h+=`<p class="lb-note">${s.tip}</p>`;
  if(s.verified)h+=`<p class="lb-note">출처: ${s.verified}</p>`;
  if(s.link)h+=`<p class="lb-note"><a href="${s.link}" target="_blank" rel="noopener">공식 시각표/정보 확인 ↗</a></p>`;
@@ -38,5 +39,6 @@ function render(){const o=list[so.value],s=o.stations[ss.value],dep=t2m(sd.value
   if(a==null||last==null){el.innerHTML='<span>체류 가능 시간</span><b>이동시간·막차 시각을 입력하세요</b>';return}
   const limit=bc!=null?Math.min(last-15,bc):last-15,stay=limit-a;
   el.innerHTML=stay>0?`<span>체류 가능(도착 ${m2t(a)}~${m2t(limit)}, 여유 15분)</span><b class="lb-big lb-ok">${Math.floor(stay/60)}시간 ${stay%60}분</b>`:`<span>체류 가능</span><b class="lb-warn">시간이 부족합니다</b>`};
+ $('lb-alarm').addEventListener('click',()=>{if(!li.value){li.focus();return}if(window.addLastBusAlarm&&window.addLastBusAlarm(o.name+' 막차',li.value)){const t=document.getElementById('tab-alarm');if(t)t.click()}});
  li.addEventListener('input',calc);ri.addEventListener('input',calc);calc()}
 sp.addEventListener('change',fillOnsen);so.addEventListener('change',fillSt);ss.addEventListener('change',render);sd.addEventListener('input',render);fillOnsen()})();

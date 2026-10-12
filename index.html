@@ -95,6 +95,7 @@
             <button role="tab" aria-selected="true" aria-controls="panel-mobility" id="tab-mobility" data-tab="mobility"><b>01</b> 막차 가디언</button>
             <button role="tab" aria-selected="false" aria-controls="panel-booking" id="tab-booking" data-tab="booking"><b>02</b> 예약 브릿지</button>
             <button role="tab" aria-selected="false" aria-controls="panel-bathing" id="tab-bathing" data-tab="bathing"><b>03</b> 입욕 케어</button>
+            <button role="tab" aria-selected="false" aria-controls="panel-alarm" id="tab-alarm" data-tab="alarm"><b>04</b> 막차 알림</button>
           </div>
         </div>
         <div class="phone-frame reveal" aria-live="polite">
@@ -120,6 +121,17 @@
             <div class="lb-result" id="bk-contact"></div>
             <div class="mail-preview" id="mail-preview"></div>
             <div class="bk-actions"><button class="app-button" type="button" id="copy-mail">일본어 문장 복사</button><a class="app-button" id="bk-mailto" href="#" hidden>메일 앱으로 보내기</a></div>
+          </section>
+          <section id="panel-alarm" role="tabpanel" aria-labelledby="tab-alarm" data-panel="alarm" hidden>
+            <div class="app-kicker">LAST BUS ALARM</div><h3>막차까지 남은 시간</h3>
+            <div class="al-form">
+              <label>이름(예: 아키타역행 막차)<input type="text" id="al-label" maxlength="30" placeholder="예: 숙소 앞 막차"></label>
+              <label>막차 시각<input type="time" id="al-time"></label>
+              <button class="app-button" type="button" id="al-add">막차 추가</button>
+            </div>
+            <label class="al-sound"><input type="checkbox" id="al-sound"> 소리·진동으로 알리기 (화면을 켜 둔 동안만)</label>
+            <div id="al-list" aria-live="polite"></div>
+            <p class="al-note">이 기기의 브라우저에만 저장됩니다. 화면을 끄거나 다른 앱을 쓰는 동안에는 알림이 오지 않으니, 시각은 공식 시각표로 꼭 확인하세요.</p>
           </section>
           <section id="panel-bathing" role="tabpanel" aria-labelledby="tab-bathing" data-panel="bathing" hidden>
             <div class="app-kicker">BATHING CARE</div><h3>오늘의 편안한 입욕 순서</h3>
@@ -229,6 +241,7 @@
   <script src="./kana.js"></script>
   <script src="./booking-contact.js"></script>
   <script src="./booking.js"></script>
+  <script src="./alarm.js"></script>
   <script src="./atlas.js"></script>
 </body>
 </html>

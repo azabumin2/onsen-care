@@ -16,3 +16,21 @@
 #panel-booking .bk-actions .app-button{height:auto;min-height:46px;padding:12px}
 #panel-booking .lb-row,#panel-booking .lb-note{font-size:.95rem}
 #panel-booking .lb-note{opacity:.85}
+/* 막차 알림 위젯 */
+#panel-alarm label,#panel-alarm input,#panel-alarm button{font-size:1rem}
+#panel-alarm .al-form{display:grid;gap:8px;margin:8px 0}
+#panel-alarm .al-form input{height:46px;padding:0 12px;border-radius:5px}
+#panel-alarm .al-form .app-button{height:46px;padding:0}
+#panel-alarm .al-sound{display:flex;gap:8px;align-items:center;margin:8px 0;font-size:.95rem}
+#panel-alarm .al-sound input{width:20px;height:20px;margin:0}
+.al-item{border:2px solid #cdd5d0;border-radius:12px;padding:12px;margin:10px 0;background:#fff}
+.al-top{display:flex;justify-content:space-between;gap:8px;font-size:1rem}
+.al-count{font:800 2rem/1.2 Arial,sans-serif;letter-spacing:.02em;margin:6px 0}
+.al-msg{font-size:1rem;font-weight:700}
+.al-item[data-st=ok]{border-color:#1b6b45}.al-item[data-st=ok] .al-count{color:#1b6b45}
+.al-item[data-st=warn]{border-color:#c98a00;background:#fff8e6}.al-item[data-st=warn] .al-count{color:#a86f00}
+.al-item[data-st=bad]{border-color:#b3261e;background:#fdecea}.al-item[data-st=bad] .al-count{color:#b3261e}
+.al-item[data-st=gone]{border-color:#999;background:#eee}.al-item[data-st=gone] .al-count{color:#777}
+.al-del{margin-top:8px;padding:8px 14px;border:1px solid #b3261e;color:#b3261e;background:#fff;border-radius:6px;cursor:pointer}
+.al-empty,.al-note{font-size:.95rem;opacity:.85}
+.lb-alarm-btn{margin-top:8px;font-size:1rem}
