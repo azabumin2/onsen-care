@@ -4,3 +4,4 @@
 .lb-row{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dashed #d5ddd8;padding:4px 0}
 .lb-big{font-size:20px;font-weight:800}.lb-warn{color:#b3261e}.lb-ok{color:#1b6b45}
 .lb-note{font-size:12px;opacity:.75;margin:0}.lb-badge{font-size:11px;background:#1b6b45;color:#fff;border-radius:99px;padding:2px 8px}
+.bk-actions{display:flex;gap:8px;align-items:stretch}.bk-actions .app-button{flex:1;margin:0;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center}.bk-actions [hidden]{display:none}

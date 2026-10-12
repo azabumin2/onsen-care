@@ -9,9 +9,9 @@ so.addEventListener('change',show);
 const cur=()=>list[so.value];
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function body(){const t=mail.textContent;const x=cur();return x?t.replace('ご担当者様',x.name+' ご担当者様'):t}
-function show(){const x=cur();if(!x){box.innerHTML='';return}
+function show(){const x=cur();if(!x){box.innerHTML='';$('bk-mailto').hidden=true;return}
  const c=C[x.name]||{};let h='';
- if(c.email)h+=`<div class="lb-row"><span>이메일 <span class="lb-badge">확인됨</span></span><b>${esc(c.email)}</b></div><a class="app-button" id="bk-mailto" href="#">메일 앱으로 보내기</a>`;
+ if(c.email)h+=`<div class="lb-row"><span>이메일 <span class="lb-badge">확인됨</span></span><b>${esc(c.email)}</b></div>`;
  if(c.form)h+=`<div class="lb-row"><span>웹 문의 폼</span><b><a href="${esc(c.form)}" target="_blank" rel="noopener">열기 ↗</a></b></div>`;
  if(c.phone)h+=`<div class="lb-row"><span>전화</span><b>${esc(c.phone)} (일본어)</b></div>`;
  if(x.official)h+=`<div class="lb-row"><span>공식 사이트</span><b><a href="${esc(x.official)}" target="_blank" rel="noopener">열기 ↗</a></b></div>`;
@@ -19,6 +19,6 @@ function show(){const x=cur();if(!x){box.innerHTML='';return}
  else if(!c.email)h+='<p class="lb-note">공개된 이메일 주소는 확인되지 않았습니다. 아래 일본어 문장을 복사해 폼이나 예약 페이지에 붙여넣으세요.</p>';
  if(c.note)h+=`<p class="lb-note">${esc(c.note)}</p>`;
  box.innerHTML=h;
- const a=$('bk-mailto');if(a)a.addEventListener('click',e=>{e.preventDefault();location.href='mailto:'+c.email+'?subject='+encodeURIComponent('宿泊予約のお問い合わせ')+'&body='+encodeURIComponent(body())})}
+ const a=$('bk-mailto');a.hidden=!c.email;a.onclick=c.email?e=>{e.preventDefault();location.href='mailto:'+c.email+'?subject='+encodeURIComponent('宿泊予約のお問い合わせ')+'&body='+encodeURIComponent(body())}:null}
 ['guest-name','checkin-date','guest-count'].forEach(id=>$(id).addEventListener('input',()=>{}));
 })();
