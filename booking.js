@@ -4,11 +4,19 @@ const prefs=[...new Set(D.map(x=>x.prefecture))];
 sp.innerHTML='<option value="">지역 선택</option>'+prefs.map(p=>`<option>${p}</option>`).join('');
 let list=[];
 sp.addEventListener('change',()=>{list=D.filter(x=>x.prefecture===sp.value);
- so.innerHTML=list.map((x,i)=>`<option value="${i}">${x.name}</option>`).join('');show()});
-so.addEventListener('change',show);
+ so.innerHTML=list.map((x,i)=>`<option value="${i}">${x.name}</option>`).join('');show();compose()});
+so.addEventListener('change',()=>{show();compose()});
 const cur=()=>list[so.value];
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
-function body(){const t=mail.textContent;const x=cur();return x?t.replace('ご担当者様',x.name+' ご担当者様'):t}
+function body(){return mail.textContent}
+const nameIn=$('guest-name'),kanaIn=$('guest-kana'),dateIn=$('checkin-date'),cntIn=$('guest-count');
+function compose(){const x=cur();const d=dateIn.value?new Date(dateIn.value+'T00:00:00'):null;
+ const jp=d?`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`:'希望日';
+ const nm=nameIn.value||'予約者',k=kanaIn.value.trim();const who=k?`${nm}（${k}）`:nm;
+ mail.textContent=`${x?x.name+' ':''}ご担当者様\n\nはじめまして、${who}と申します。\n${jp}から${cntIn.value}名で宿泊を希望しております。\n予約可能なお部屋と料金、送迎の有無をご案内いただけますでしょうか。\n\nどうぞよろしくお願いいたします。`}
+$('kana-btn').addEventListener('click',()=>{kanaIn.value=window.koToKatakana?window.koToKatakana(nameIn.value):'';compose()});
+[nameIn,kanaIn,dateIn,cntIn].forEach(e=>e.addEventListener('input',compose));
+compose();
 function show(){const x=cur();if(!x){box.innerHTML='';$('bk-mailto').hidden=true;return}
  const c=C[x.name]||{};let h='';
  if(c.email)h+=`<div class="lb-row"><span>이메일 <span class="lb-badge">확인됨</span></span><b>${esc(c.email)}</b></div>`;
@@ -20,5 +28,4 @@ function show(){const x=cur();if(!x){box.innerHTML='';$('bk-mailto').hidden=true
  if(c.note)h+=`<p class="lb-note">${esc(c.note)}</p>`;
  box.innerHTML=h;
  const a=$('bk-mailto');a.hidden=!c.email;a.onclick=c.email?e=>{e.preventDefault();location.href='mailto:'+c.email+'?subject='+encodeURIComponent('宿泊予約のお問い合わせ')+'&body='+encodeURIComponent(body())}:null}
-['guest-name','checkin-date','guest-count'].forEach(id=>$(id).addEventListener('input',()=>{}));
 })();

@@ -113,6 +113,7 @@
           <section id="panel-booking" role="tabpanel" aria-labelledby="tab-booking" data-panel="booking" hidden>
             <div class="app-kicker">BOOKING BRIDGE</div><h3>일본어 문의 메일 만들기</h3>
             <label>이름<input type="text" id="guest-name" value="김지우" maxlength="20"></label>
+            <div class="bk-kana"><input type="text" id="guest-kana" placeholder="가타카나 (변환 후 수정 가능)" maxlength="40" aria-label="가타카나 이름"><button class="app-button" type="button" id="kana-btn">가타카나 변환</button></div>
             <div class="form-row"><label>체크인<input type="date" id="checkin-date" value="2026-11-14"></label><label>인원<select id="guest-count"><option value="1">1명</option><option value="2" selected>2명</option><option value="3">3명</option><option value="4">4명</option></select></label></div>
             <label>지역<select id="bk-pref"></select></label>
             <label>온천(시설)<select id="bk-onsen"></select></label>
@@ -225,6 +226,7 @@
   <script src="./script.js"></script>
   <script src="./lastbus-data.js"></script>
   <script src="./lastbus.js"></script>
+  <script src="./kana.js"></script>
   <script src="./booking-contact.js"></script>
   <script src="./booking.js"></script>
   <script src="./atlas.js"></script>
