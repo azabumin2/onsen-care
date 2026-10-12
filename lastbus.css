@@ -1,0 +1,6 @@
+.lb{display:grid;gap:10px;text-align:left}.lb label{display:grid;gap:4px;font-size:13px;font-weight:700}
+.lb select,.lb input{font:inherit;padding:10px;border-radius:10px;border:1px solid #cdd5d0;background:#fff}
+.lb-result{background:#f3f7f4;border-radius:14px;padding:12px;font-size:14px;line-height:1.6}
+.lb-row{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dashed #d5ddd8;padding:4px 0}
+.lb-big{font-size:20px;font-weight:800}.lb-warn{color:#b3261e}.lb-ok{color:#1b6b45}
+.lb-note{font-size:12px;opacity:.75;margin:0}.lb-badge{font-size:11px;background:#1b6b45;color:#fff;border-radius:99px;padding:2px 8px}
