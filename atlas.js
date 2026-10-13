@@ -2,7 +2,7 @@
   const data=window.ONSEN_DATA||[];
   const sources=window.ONSEN_SOURCES||{};
   const images=window.ONSEN_IMAGES||{};
-  const order=['茨城県','栃木県','群馬県','埼玉県','千葉県','神奈川県','富山県','福井県','三重県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県'];
+  const order=['福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','神奈川県','新潟県','富山県','山梨県','長野県','静岡県','福井県','三重県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県'];
   const root=document.querySelector('#atlas-groups');
   if(!root||!data.length)return;
   const search=document.querySelector('#onsen-search');
@@ -15,7 +15,7 @@
   const prefs=[...new Set(data.map(item=>item.prefecture))].sort((a,b)=>order.indexOf(a)-order.indexOf(b));
 
   const escapeHtml=value=>String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
-  const sourceUrl=item=>sources[item.source]?.url||'#';
+  const sourceUrl=item=>sources[item.source]?.url||'';
   const sourceLabel=item=>sources[item.source]?.label||'출처';
   const mapUrl=item=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${item.prefecture} ${item.name}`)}`;
 
@@ -23,9 +23,11 @@
     select.insertAdjacentHTML('beforeend',`<option value="${escapeHtml(pref)}">${escapeHtml(pref)}</option>`);
     chips.insertAdjacentHTML('beforeend',`<button type="button" data-pref="${escapeHtml(pref)}">${escapeHtml(pref.replace('県',''))}</button>`);
   });
-  Object.values(sources).forEach(source=>sourceLinks.insertAdjacentHTML('beforeend',`<a href="${source.url}" target="_blank" rel="noopener">${escapeHtml(source.label)} ↗</a>`));
+  Object.values(sources).filter(s=>s.url).forEach(source=>sourceLinks.insertAdjacentHTML('beforeend',`<a href="${source.url}" target="_blank" rel="noopener">${escapeHtml(source.label)} ↗</a>`));
   document.querySelector('#atlas-count').textContent=data.length;
   document.querySelector('#prefecture-count').textContent=prefs.length;
+  const hc=document.querySelector('#atlas-h2-count'),hp=document.querySelector('#atlas-h2-pref'),sc=document.querySelector('#source-count');
+  if(hc)hc.textContent=data.length;if(hp)hp.textContent=prefs.length;if(sc)sc.textContent=Object.keys(sources).length;
 
   function card(item){
     const primary=item.official||sourceUrl(item);
@@ -33,7 +35,7 @@
     return `<article class="onsen-card">
       <div class="onsen-media"><img src="${images[item.kind]||images.mountain}" alt="${escapeHtml(item.name)} 지역의 분위기를 표현한 온천 이메ージ" loading="lazy"><small>AI 분위기 이미지 · 실제 시설 아님</small></div>
       <div class="onsen-body">
-        <div class="onsen-kicker"><span>${escapeHtml(item.prefecture)}</span><a style="color:#986c32;border-bottom:1px solid rgba(152,108,50,.35)" href="${sourceUrl(item)}" target="_blank" rel="noopener">${escapeHtml(sourceLabel(item))} ↗</a></div>
+        <div class="onsen-kicker"><span>${escapeHtml(item.prefecture)}</span>${sourceUrl(item)?`<a style="color:#986c32;border-bottom:1px solid rgba(152,108,50,.35)" href="${sourceUrl(item)}" target="_blank" rel="noopener">${escapeHtml(sourceLabel(item))} ↗</a>`:`<small style="color:#986c32">${escapeHtml(sourceLabel(item))}</small>`}</div>
         <h4>${escapeHtml(item.name)}</h4>
         <p class="onsen-desc">${escapeHtml(item.description)}</p>
         <div class="transport-box">
@@ -41,7 +43,7 @@
           <div class="transport-row"><b>자동차</b><span>${escapeHtml(item.car)}</span></div>
           <div class="transport-row warning"><b>주의</b><span>${escapeHtml(item.caution)}</span></div>
         </div>
-        <div class="onsen-actions"><a href="${primary}" target="_blank" rel="noopener">${primaryLabel} ↗</a><a href="${mapUrl(item)}" target="_blank" rel="noopener">지도에서 찾기 ↗</a></div>
+        <div class="onsen-actions">${primary?`<a href="${primary}" target="_blank" rel="noopener">${primaryLabel} ↗</a>`:''}<a href="${mapUrl(item)}" target="_blank" rel="noopener">지도에서 찾기 ↗</a></div>
       </div>
     </article>`;
   }
