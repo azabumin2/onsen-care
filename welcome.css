@@ -1,0 +1,34 @@
+/* 상단 스마트 배너 + 첫 방문 웰컴 팝업 */
+html{scroll-padding-top:calc(74px + var(--bh,0px))}
+body{padding-top:var(--bh,0px)}
+.site-header{top:var(--bh,0px)}
+.wb{position:fixed;z-index:110;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 14px;background:linear-gradient(90deg,#6b3f12,#4a3012 55%,#1c1a17);color:#fff;font-size:.9rem;line-height:1.3}
+.wb[hidden]{display:none}
+.wb-main{display:flex;align-items:center;gap:8px;min-width:0}
+.wb-tag{flex:0 0 auto;background:#e8a93a;color:#1c1a17;font-weight:800;font-size:.7rem;padding:2px 8px;border-radius:99px}
+.wb-text{margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.wb-actions{display:flex;align-items:center;gap:6px;flex:0 0 auto}
+.wb-go{background:rgba(255,255,255,.12);color:#ffd98a;border:1px solid rgba(255,214,140,.4);border-radius:6px;padding:6px 10px;font-weight:700;font-size:.82rem;cursor:pointer;white-space:nowrap}
+.wb-x{background:none;border:0;color:#d8d2c8;font-size:1.1rem;padding:4px 8px;cursor:pointer}
+.wm{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px}
+.wm[hidden]{display:none}
+.wm-box{background:#fff;color:#22332d;width:100%;max-width:520px;max-height:92vh;overflow:auto;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.wm-head{position:relative;background:linear-gradient(135deg,#1c1a17,#4a3012);color:#fff;padding:20px 22px}
+.wm-x{position:absolute;top:10px;right:10px;background:none;border:0;color:#d8d2c8;font-size:1.3rem;padding:6px 10px;cursor:pointer}
+.wm-tag{font-size:.7rem;font-weight:800;letter-spacing:.12em;color:#e8a93a}
+.wm-head h3{margin:6px 0 4px;font-size:1.3rem;line-height:1.35}
+.wm-head p{margin:0;font-size:.95rem;color:#e3ddd2;line-height:1.5}
+.wm-body{padding:18px 22px;display:grid;gap:12px}
+.wm-priv{background:#ecf7f0;border:1px solid #bfe0cc;border-radius:10px;padding:10px 12px;font-size:.9rem;line-height:1.5;color:#17432b}
+.wm-tool{display:flex;gap:12px;align-items:center;background:#f6f4ee;border:1px solid #e1ddd0;border-radius:10px;padding:12px}
+.wm-ico{font-size:1.5rem;flex:0 0 auto}
+.wm-tool b{display:block;font-size:1rem}
+.wm-tool span{font-size:.88rem;color:#5b6660}
+.wm-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid #e8e4d8;padding-top:12px}
+.wm-chk{display:flex;gap:8px;align-items:center;font-size:.92rem;color:#5b6660;cursor:pointer}
+.wm-chk input{width:20px;height:20px}
+.wm-btns{display:flex;gap:8px}
+.wm-btns button{font-size:1rem;font-weight:700;border:0;border-radius:10px;padding:12px 16px;cursor:pointer}
+.wm-close{background:#e8e4d8;color:#3d4640}
+.wm-go{background:#b78142;color:#fff}
+@media (max-width:600px){.wb{font-size:.82rem;padding:7px 10px}.wb-tag{display:none}.wm-btns{width:100%}.wm-btns button{flex:1}}
