@@ -140,14 +140,23 @@
             <p class="al-note">이 기기의 브라우저에만 저장됩니다. 화면을 끄거나 다른 앱을 쓰는 동안에는 알림이 오지 않으니, 시각은 공식 시각표로 꼭 확인하세요.</p>
           </section>
           <section id="panel-bathing" role="tabpanel" aria-labelledby="tab-bathing" data-panel="bathing" hidden>
-            <div class="app-kicker">BATHING CARE</div><h3>오늘의 편안한 입욕 순서</h3>
-            <div class="sequence">
-              <button type="button" class="done"><span>1</span><div><b>입욕 15분 전</b><small>상온의 물로 수분 보충</small></div><i>✓</i></button>
-              <button type="button"><span>2</span><div><b>미온탕부터</b><small>38~40℃에서 짧게 적응</small></div><i></i></button>
-              <button type="button"><span>3</span><div><b>고온탕은 신중히</b><small>몸 상태를 확인하고 오래 머물지 않기</small></div><i></i></button>
-              <button type="button"><span>4</span><div><b>충분한 휴식</b><small>어지러우면 즉시 중단</small></div><i></i></button>
+            <div class="app-kicker">BATHING TIMER</div><h3>탕치 타이머</h3>
+            <div class="bt" id="bt">
+              <div class="bt-warn">몸이 안 좋거나 어지러우면 <b>바로 중단</b>하세요. 식사 직후·음주 후 입욕은 피하고, <b>42℃를 넘는 탕은 피하세요.</b></div>
+              <div class="bt-step" id="bt-step"></div>
+              <div class="bt-time" id="bt-time">05:00</div>
+              <div class="bt-hint" id="bt-hint"></div>
+              <div class="bt-dots" id="bt-dots" aria-hidden="true"></div>
+              <div class="bt-btns">
+                <button type="button" class="app-button" id="bt-start">시작</button>
+                <button type="button" class="bt-sub" id="bt-next">다음 단계</button>
+                <button type="button" class="bt-sub" id="bt-reset">처음부터</button>
+              </div>
+              <label class="bt-opt"><input type="checkbox" id="bt-sound" checked> 단계가 끝나면 소리·진동으로 알림</label>
+              <label class="bt-opt"><input type="checkbox" id="bt-wake"> 화면을 꺼지지 않게 유지 (지원하는 기기만)</label>
+              <label class="bt-opt"><input type="checkbox" id="bt-skiphot"> 따뜻한 전신욕(40~42℃) 단계 건너뛰기</label>
             </div>
-            <p class="micro-disclaimer">일반적인 생활 가이드입니다. 의료적 판단이 필요한 경우 의료진과 상담하세요.</p>
+            <p class="micro-disclaimer">일반적인 생활 가이드이며 의료 행위나 치료가 아닙니다. 시간과 온도는 참고용이고, 기저질환·임신·약 복용 중이시면 입욕 전 의료진과 상담하세요. 시설의 이용 안내가 우선입니다.</p>
           </section>
         </div>
       </div>
@@ -269,6 +278,7 @@
   <script src="./booking.js"></script>
   <script src="./mailbuilder.js"></script>
   <script src="./alarm.js"></script>
+  <script src="./bath.js"></script>
   <script src="./atlas.js"></script>
   <script src="./welcome.js"></script>
 </body>
