@@ -4,6 +4,7 @@ const ONSEN_SOURCES={
   jalanSecret:{label:'じゃらん 秘湯5選',url:'https://www.jalan.net/news/article/242154/'},
   jalanStation:{label:'じゃらん 駅近6選',url:'https://www.jalan.net/news/article/137067/'},
   localList:{label:'역세권 로컬 비탕 선별 리스트(제공)',url:''},
+  official:{label:'시설 공식 사이트',url:'https://www.okuaizu-tsurunoyu.jp/'},
   rurubu:{label:'るるぶ&more. 関東39選',url:'https://rurubu.jp/andmore/article/6999'},
   tanken:{label:'探検.com 福井9選',url:'https://www.tan-ken.com/ja/blog/wttpv26epw'}
 };
@@ -122,4 +123,6 @@ window.ONSEN_DATA=[
   onsen('福島県','飯坂温泉','urban','140年の歴史を持つ単純泉かけ流しの宿が並ぶ温泉街。部屋食。提供リストの宿名はホリエヤ・ナカヤ旅館。','福島交通・飯坂温泉駅から徒歩圏。','車の場合は地図アプリで最新の経路を確認。','宿名の正式表記は公式サイトで確認してください。 提供リストに基づく掲載。料金・営業時間・予約方法は出発前に公式で確認。','localList','https://iizaka.com/'),
   onsen('福島県','神白温泉 国元屋','mountain','飲用できる天然鉱泉の宿（2食付き9千円台の記載）。','JR常磐線沿線（いわき周辺）。最寄り駅は要確認。','車の場合は地図アプリで最新の経路を確認。','提供リストに基づく掲載。料金・営業時間・予約方法は出発前に公式で確認。','localList','https://kunimotoya.net/'),
   onsen('鳥取県','東郷温泉 寿湯','urban','力強い源泉直送の湯。地元の人に親しまれる銭湯。','JR山陰本線沿線。最寄り駅は要確認。','車の場合は地図アプリで最新の経路を確認。','提供リストに基づく掲載。料金・営業時間・予約方法は出発前に公式で確認。','localList'),
+
+  onsen('福島県','早戸温泉 つるの湯','mountain','只見川渓谷に面し、加水・加温・循環・濾過を行わない源泉かけ流しをうたう温泉。露天風呂から渓谷の景色を望める。','JR只見線・早戸駅から国道252号を徒歩約10分。早戸駅までの無料送迎は列車時刻に合わせた便のみ、2日前までに連絡。','磐越道・会津坂下ICから約23.5km・約25分。駐車場30台。','休業日は原則水曜日。日帰りは10:00〜20:00（最終受付19:30）。入湯券は3時間700円・1日1,400円（税込・公式サイト記載）。','official','https://www.okuaizu-tsurunoyu.jp/'),
 ];

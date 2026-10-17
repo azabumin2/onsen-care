@@ -3,7 +3,7 @@ const sp=$('lb-pref'),so=$('lb-onsen'),ss=$('lb-station'),sd=$('lb-dep'),out=$('
 const KO={'北海道':'홋카이도','青森県':'아오모리','岩手県':'이와테','宮城県':'미야기','秋田県':'아키타','山形県':'야마가타','福島県':'후쿠시마','茨城県':'이바라키','栃木県':'도치기','群馬県':'군마','埼玉県':'사이타마','千葉県':'지바','東京都':'도쿄','神奈川県':'가나가와','新潟県':'니가타','富山県':'도야마','石川県':'이시카와','福井県':'후쿠이','山梨県':'야마나시','長野県':'나가노','岐阜県':'기후','静岡県':'시즈오카','愛知県':'아이치','三重県':'미에','滋賀県':'시가','京都府':'교토','大阪府':'오사카','兵庫県':'효고','奈良県':'나라','和歌山県':'와카야마','鳥取県':'돗토리','島根県':'시마네','岡山県':'오카야마','広島県':'히로시마','山口県':'야마구치','徳島県':'도쿠시마','香川県':'가가와','愛媛県':'에히메','高知県':'고치','福岡県':'후쿠오카','佐賀県':'사가','長崎県':'나가사키','熊本県':'구마모토','大分県':'오이타','宮崎県':'미야자키','鹿児島県':'가고시마','沖縄県':'오키나와'};
 const ORDER=Object.keys(KO);
 const all=D.map(o=>({...o,detail:true}));
-if(window.ONSEN_DATA)window.ONSEN_DATA.forEach(x=>{if(/武甲/.test(x.name))return;
+if(window.ONSEN_DATA)window.ONSEN_DATA.forEach(x=>{if(/武甲|早戸/.test(x.name))return;
  all.push({name:x.name,prefJa:x.prefecture,pref:'',bath:{open:'',last:'',close:''},detail:false,
   stations:[{from:'가까운 역/정류장은 아래 안내 참고',mode:x.transit,ride:null,fare:'요확인',out:[],outArr:[],back:[],verified:'',link:x.official||'',tip:x.caution||''}]})});
 const t2m=t=>{if(!t)return null;const[a,b]=t.split(':').map(Number);return a*60+b};

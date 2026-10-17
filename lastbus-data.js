@@ -16,7 +16,7 @@ window.LASTBUS=[
 {id:"kita",prefJa:"栃木県",name:"기타 온천 료칸",pref:"도치기·나스",bath:{open:"08:30",last:"16:00",close:"16:30"},
  stations:[{from:"구로이소역",mode:"간토 자동차 버스(정류장 北湯入口)",ride:null,fare:"요확인",out:[],outArr:[],back:[],verified:"",link:"https://transfer-cloud.navitime.biz/",tip:"하차 정류장 北湯入口/白戸川."}]},
 {id:"hayato",prefJa:"福島県",name:"하야토 온천 쓰루노유",pref:"후쿠시마·미시마",bath:{open:"10:00",last:"19:30",close:"20:00"},
- stations:[{from:"하야토역(타다미선)",mode:"도보 10분 / 무료 송영",ride:10,fare:"무료(송영)",out:[],outArr:[],back:["05:50","07:26","09:00","12:48","15:53","19:26"],verified:"JR동일본 공식 시각표(2026-10판) 하야토역→아이즈와카마쓰 방면, 평일·휴일 동일",link:"https://timetables.jreast.co.jp/2610/timetable/tt1254/1254021.html",tip:"하루 6편뿐입니다. 12:48 다음은 15:53, 마지막은 19:26. 입욕 마감 전에 놓치지 않게 주의하세요. 상행(들어오는 열차) 시각은 링크에서 확인."}]},
+ stations:[{from:"하야토역(타다미선)",mode:"도보 약 10분(국도 252호선) / 열차 시각에 맞춘 무료 송영(2일 전까지 연락)",ride:10,fare:"무료(송영)",out:[],outArr:[],back:["05:50","07:26","09:00","12:48","15:53","19:26"],verified:"JR동일본 공식 시각표(2026-10판) 하야토역→아이즈와카마쓰 방면, 평일·휴일 동일",link:"https://timetables.jreast.co.jp/2610/timetable/tt1254/1254021.html",tip:"하루 6편뿐입니다. 12:48 다음은 15:53, 마지막은 19:26. 입욕 마감 전에 놓치지 않게 주의하세요. 상행(들어오는 열차) 시각은 링크에서 확인. 시설 공식 안내: 송영은 하야토역 열차 시각에 맞춘 편만 영업시간 중 운행하며 2일 전까지 전화(0241-52-3324)로 신청, 휴업일은 원칙 수요일, 입욕권은 3시간 700엔·1일 1,400엔(okuaizu-tsurunoyu.jp)."}]},
 {id:"buko",prefJa:"埼玉県",name:"지치부 유모토 부코 온천",pref:"사이타마·요코제",bath:{open:"10:00",last:"20:30",close:"21:00"},
  stations:[{from:"세이부치치부선 요코제역",mode:"도보 10분",ride:10,fare:"무료",out:[],outArr:[],back:[],verified:"",link:"",tip:"세이부치치부선 막차 시각을 확인해 입력하세요."}]},
 {id:"ageo",prefJa:"埼玉県",name:"아게오 천연온천 히비키노유",pref:"사이타마·아게오",bath:{open:"11:00",last:"21:00",close:"21:30"},
